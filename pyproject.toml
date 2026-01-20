@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf-prepender"
+version = "0.1.0"
+description = "A Python library that prepends dynamically generated pages to existing PDFs with support for clickable internal links"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "PDF Prepender Team"}
+]
+keywords = ["pdf", "prepend", "reportlab", "pypdf", "document"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Markup",
+]
+
+dependencies = [
+    "reportlab>=4.0.0",
+    "pypdf>=4.0.0",
+    "pydantic>=2.0.0",
+    "pymupdf>=1.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/example/pdf-prepender"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pdf_prepender*"]
+
+[tool.pytest.ini_options]
+testpaths = ["pdf_prepender/tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v"
